@@ -33,13 +33,17 @@
 }
 
 .nav-btn {
-  background: #ffd7c2;
+  background: #F6B8A8;
   color: #1a1a1a;
   padding: 10px 18px;
   border-radius: 10px;
   text-decoration: none;
   font-weight: 600;
   transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.out {
+    background: #F8DBC7;
 }
 
 .nav-btn:hover {
