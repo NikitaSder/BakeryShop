@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Магазин випічки - Кошик</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="header">
+    <div class="header-inner">
+        <div class="logo">
+        <img src="logo.png" alt="Кошик" class="logo-img">
+        </div>
+
+        <nav class="nav">
+            <div class="nav-center">
+                <a href="index.html" class="nav-btn main">Головна</a>
+                <a href="#" class="nav-btn goods">Товари</a>
+                <a href="basket.html" class="nav-btn basket">Кошик</a>
+            </div>
+            <div class="nav-right">
+                <a href="#" class="nav-btn out">Вхід</a>
+            </div>
+        </nav>
+    </div>
+</header>
+<div class="cart_group">
+    <h1>Кошик</h1>
+    
+    <div class="cart-items">
+        <div class="cart-item">
+            <div class="item-details">
+                <div class="item-name">Хліб Домашній Білий</div>
+                <div class="item-price">22.45₴</div>
+            </div>
+            <div class="item-quantity">
+                <input type="number" value="1" min="1">
+            </div>
+            <div class="item-total">22.45₴</div>
+        </div>
+    </div>
+    
+    <button class="checkout-btn">Оформити замовлення</button>
+</div>
+<footer>
+    <div class="footer">
+        <p>Створенно <br>@Vherter11 | @Krolia_013<br>@nikitosds</p>
+    </div>
+</footer>
+<script>
+function saveCart(cart) {
+    localStorage.setItem('cart', JSON.stringify(cart));
+}
+
+function getCart() {
+    let cart = localStorage.getItem('cart');
+    return cart ? JSON.parse(cart) : [];
+}
+
+function loadCart() {
+    let cart = getCart();
+    let cartItemsDiv = document.querySelector('.cart-items');
+    cartItemsDiv.innerHTML = '';
+    if (cart.length === 0) {
+        cartItemsDiv.innerHTML = '<p>Кошик порожній</p>';
+        return;
+    }
+    cart.forEach((item, index) => {
+        let itemDiv = document.createElement('div');
+        itemDiv.className = 'cart-item';
+        itemDiv.innerHTML = `
+            <div class="item-details">
+                <div class="item-name">${item.name}</div>
+                <div class="item-price">${item.price}₴</div>
+            </div>
+            <div class="item-quantity">
+                <input type="number" value="${item.quantity}" min="1" onchange="updateQuantity(${index}, this.value)">
+            </div>
+            <div class="item-total">${(item.price * item.quantity).toFixed(2)}₴</div>
+        `;
+        cartItemsDiv.appendChild(itemDiv);
+    });
+}
+
+function updateQuantity(index, newQty) {
+    let cart = getCart();
+    cart[index].quantity = parseInt(newQty);
+    saveCart(cart);
+    loadCart(); // reload to update totals
+}
+
+document.querySelector('.checkout-btn').addEventListener('click', function() {
+    let cart = getCart();
+    if (cart.length === 0) {
+        alert('Кошик порожній!');
+        return;
+    }
+    alert('Замовлення оформлено успішно!');
+    localStorage.removeItem('cart');
+    loadCart();
+});
+
+loadCart();
+</script>
+</body>
+</html>
