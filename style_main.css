@@ -79,7 +79,7 @@ main {
   backdrop-filter: blur(2px);
 }
 
-/* окно */
+
 .notif-content {
   background: #fff;
   padding: 30px;
@@ -93,7 +93,6 @@ main {
   animation: fadeIn 0.3s ease;
 }
 
-/* заголовок и текст */
 .notif-content h2 {
   margin-bottom: 12px;
   font-size: 22px;
@@ -105,7 +104,6 @@ main {
   color: #333;
 }
 
-/* кнопка */
 .notif-btn {
   margin-top: 20px;
   padding: 10px 20px;
@@ -122,7 +120,6 @@ main {
   background-color: #a0662f;
 }
 
-/* анимация */
 @keyframes fadeIn {
   from { opacity: 0; transform: scale(0.95); }
   to { opacity: 1; transform: scale(1); }
@@ -157,7 +154,7 @@ main {
 /* === Акція === */
 .promo-section {
   background-color: #F8C898;
-  border: 3px solid #000;   /* чёрная обводка блока */
+  border: 3px solid #000;
   border-radius: 30px;
   padding: 30px 20px;
   margin-bottom: 40px;
@@ -211,12 +208,12 @@ main {
 }
 
 .icon_card {
-  border: 2px solid black;   /* проста рамка */
-  border-radius: 4px;        /* якщо хочеш закруглені кути */
+  border: 2px solid black;
+  border-radius: 4px;
 }
 
 
-
+/* Корзина (кнопка) */
 .cart-button:hover {
   background-color: #a0662f;
 }
@@ -274,15 +271,4 @@ main {
   width: 300px;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-}
-
-/* === Responsive === */
-@media (max-width: 768px) {
-  .promo-grid {
-    flex-direction: column;
-    align-items: center;
-  }
-  .about-content img {
-    width: 90%;
-  }
 }
