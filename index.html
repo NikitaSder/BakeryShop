@@ -16,7 +16,7 @@
             <div class="nav-center">
                 <a href="index.html" class="nav-btn main">Головна</a>
                 <a href="#" class="nav-btn goods">Товари</a>
-                <a href="basket.html" class="nav-btn basket">Кошик</a>
+                <a href="basket.html" class="nav-btn basket">Кошик (<span class="basket_item">0</span>)</a>
             </div>
             <div class="nav-right">
                 <a href="#" class="nav-btn out" onclick="openNotif()">Вхід</a>
@@ -55,7 +55,7 @@
             <span class="new-price">15,50₴</span>
         </div>
 
-        <button class="cart-button" value="15.5">
+        <button class="cart-button" value="15.5" onclick="showToast('Хліб Домашній Білий')">
           <img src="basket_no.svg" alt="Кошик" class="cart-icon">
           <span>До кошика</span>
         </button>
@@ -67,7 +67,7 @@
             <span class="old-price">31,20₴</span>
             <span class="new-price">25,00₴</span>
         </div>
-        <button class="cart-button" value="25.0">
+        <button class="cart-button" value="25.0" onclick="showToast('Хліб Домашній Сірий')">
           <img src="basket_no.svg" alt="Кошик" class="cart-icon">
           <span>До кошика</span>
         </button>
@@ -79,7 +79,7 @@
             <span class="old-price">27,20₴</span>
             <span class="new-price">20,00₴</span>
         </div>
-        <button class="cart-button" value="20.0">
+        <button class="cart-button" value="20.0" onclick="showToast('Булка з маком')">
           <img src="basket_no.svg" alt="Кошик" class="cart-icon">
           <span>До кошика</span>
         </button>
@@ -96,8 +96,7 @@
     </div>
   </div>
 </main>
-
-
+<div class="toast"></div>  
 <footer>
     <div class="footer">
         <p>Створенно <br>@Vherter11 | @Krolia_013<br>@nikitosds</p>
