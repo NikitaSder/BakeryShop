@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Магазин випічки - Головна</title>
+    <link rel="stylesheet" href="style_main.css">
+</head>
+<body>
+<header class="header">
+    <div class="header-inner">
+        <div class="logo">
+        <img src="logo.png" alt="Кошик" class="logo-img">
+        </div>
+
+        <nav class="nav">
+            <div class="nav-center">
+                <a href="index.html" class="nav-btn main">Головна</a>
+                <a href="Cataloge.html" class="nav-btn goods">Товари</a>
+                <a href="Koshyk.html" class="nav-btn basket">Кошик (<span class="basket_item">0</span>)</a>
+            </div>
+            <div class="nav-right">
+                <a href="#" class="nav-btn out" onclick="openNotif()">Вхід</a>
+            </div>
+        </nav>
+    </div>
+</header>
+
+
+<main>
+  <div class="notif">
+    <div class="notif-content">
+      <h2>⚠️ Увага</h2>
+      <p>Нажаль ця функція наразі в розробці! Зайдіть пізніше.</p>
+      <button class="notif-btn" onclick="closeNotif()">Закрити</button>
+    </div>
+  </div>
+
+
+  <!-- Hero -->
+  <div class="hero">
+    <h1>Ласкаво просимо до нашої пекарні</h1>
+    <p>Свіжа випічка щодня. Тепло, аромат і любов у кожному шматочку.</p>
+  </div>
+
+  <!-- Акція -->
+  <div class="promo-section">
+    <h2 class="promo-title">Акція “Новорічне диво”</h2>
+    <p class="promo-subtitle">Через новорічні свята випічка нашого магазина продається з акцією!</p>
+    <div class="promo-grid">
+      <div class="promo-card" data-product="bread_white" data-name="Хліб Домашній Білий" data-price="15.50" data-image="bread.jpg">
+        <img class="icon_card" src="bread.jpg" alt="Хліб Домашній Білий">
+        <h3>Хліб Домашній Білий</h3>
+        <div class="price-block">
+            <span class="old-price">21,40₴</span>
+            <span class="new-price">15,50₴</span>
+        </div>
+
+        <button class="ToTheCard" onclick="addPromoToCart(this)">
+          <img src="basket_no.svg" alt="Кошик" class="cart-icon">
+          <span>До кошика</span>
+        </button>
+      </div>
+      <div class="promo-card" data-product="bread_siry" data-name="Хліб Домашній Сірий" data-price="15.00" data-image="seryi.jpg">
+        <img class="icon_card" src="seryi.jpg" alt="Хліб Домашній Сірий">
+        <h3>Хліб Домашній Сірий</h3>
+        <div class="price-block">
+            <span class="old-price">22,55₴</span>
+            <span class="new-price">15,00₴</span>
+        </div>
+        <button class="ToTheCard" onclick="addPromoToCart(this)">
+          <img src="basket_no.svg" alt="Кошик" class="cart-icon">
+          <span>До кошика</span>
+        </button>
+      </div>
+      <div class="promo-card" data-product="bread_mak" data-name="Булка з Маком" data-price="7.50" data-image="mak.jpg">
+        <img class="icon_card" src="mak.jpg" alt="Булка з маком">
+        <h3>Булка з маком</h3>
+        <div class="price-block">
+            <span class="old-price">12.50₴</span>
+            <span class="new-price">7,50₴</span>
+        </div>
+        <button class="ToTheCard" onclick="addPromoToCart(this)">
+          <img src="basket_no.svg" alt="Кошик" class="cart-icon">
+          <span>До кошика</span>
+        </button>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Про нас -->
+  <div class="about-section">
+    <h2>Про нас</h2>
+    <div class="about-content">
+      <p>Ми — невелика пекарня з великим серцем. Готуємо з любов’ю, печемо з душею. Наші рецепти — це традиції, які ми передаємо з покоління в покоління.</p>
+    </div>
+  </div>
+</main>
+<div class="toast"></div>  
+<footer>
+    <div class="footer">
+        <p>Створенно <br>@Vherter11 | @Krolia_013<br>@nikitosds</p>
+    </div>
+</footer>
+<script src="Code.Js"></script>
+<script src="script.js"></script>
+<script>
+function addPromoToCart(button) {
+    const card = button.closest('.promo-card');
+    const productId = card.getAttribute('data-product');
+    const productName = card.getAttribute('data-name');
+    const productPrice = parseFloat(card.getAttribute('data-price'));
+    addToCart(productId, productName, productPrice);
+}
+</script>
+</body>
+</html>
