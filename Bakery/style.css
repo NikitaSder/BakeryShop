@@ -5,17 +5,68 @@ body {
     flex-direction: column;
     min-height: 100vh;
 }
-.header {
-    background-color: #BA7D4C;
-    width: auto;
-    height: 120px;
 
+.header {
+  background: #f28c28;
+  padding: 12px 20px;
 }
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo-img {
+  width: 40px;
+  height: auto;
+}
+
+.nav {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.nav-center {
+  display: flex;
+  gap: 12px;
+}
+
+.nav-right {
+  position: absolute;
+  right: 0;
+}
+
+.nav-btn {
+  background: #F6B8A8;
+  color: #1a1a1a;
+  padding: 10px 18px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.out {
+    background: #F8DBC7;
+}
+
+.nav-btn:hover {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  transform: translateY(-1px);
+}
+
 .menu {
     display: flex;
     justify-content: space-between;
     padding: 20px;
 }
+
 .m_but {
     width: fit-content;
     height: 50px;
@@ -25,6 +76,7 @@ body {
     cursor: pointer;
     transition: all 0.3s ease;
 }
+
 .m_but:hover {
     background-color: #e0a0a0;
     transform: scale(1.05);
@@ -127,6 +179,48 @@ body {
     border-radius: 5px;
     padding: 5px;
 }
+.cart-item-quantity {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+.qty-btn {
+    background-color: #F6B8A8;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    color: #1a1a1a;
+}
+.qty-btn:hover {
+    background-color: #e0a0a0;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+.remove-btn {
+    background-color: #e0a0a0;
+    border: none;
+    border-radius: 20px;
+    padding: 8px 16px;
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    font-size: 14px;
+}
+.remove-btn:hover {
+    background-color: #d47777;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+.cart-total {
+    font-size: 20px;
+    font-weight: bold;
+    color: #BA7D4C;
+    margin-bottom: 15px;
+}
 .checkout-btn {
     background-color: #F6B8A8;
     color: #BA7D4C;
@@ -143,6 +237,87 @@ body {
 h1 {
     color: #BA7D4C;
     margin-bottom: 30px;
+}
+
+.catalog_container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-grow: 1;
+    padding: 20px;
+}
+
+.catalog_grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    width: 100%;
+    max-width: 1400px;
+    padding: 20px;
+}
+
+.catalog_card {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    animation: fadeIn 0.3s ease-in;
+    margin-bottom: 20px;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.small_card_link {
+    text-decoration: none;
+    display: block;
+}
+
+.small_card {
+    background-color: #BA7D4C;
+    border-radius: 12px;
+    padding: 15px;
+    text-align: center;
+    transition: all 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 40px;
+}
+
+.small_card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+}
+
+.small_card_img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.small_card_name {
+    font-size: 16px;
+    font-weight: bold;
+    color: #f1c6bb;
+    margin-bottom: 8px;
+}
+
+.small_card_price {
+    font-size: 18px;
+    font-weight: bold;
+    color: #f1c6bb;
+    padding: 10px;
 }
 
 /* Mobile responsiveness */
@@ -212,5 +387,12 @@ h1 {
     h1 {
         font-size: 24px;
         margin-bottom: 20px;
+    }
+    .catalog_grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    .catalog_card {
+        width: 100%;
     }
 }
